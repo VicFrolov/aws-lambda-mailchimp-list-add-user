@@ -1,0 +1,17 @@
+{
+  "name": "aws-lambda-mailchimp-list-user-add",
+  "version": "1.0.0",
+  "description": "Add a user to a mailchimp list using an AWS Lambda function",
+  "main": "index.js",
+  "scripts": {
+    "zip": "zip -r mailchimp-lambda.zip index.js node_modules/"
+  },
+  "author": "Victor Frolov",
+  "license": "MIT",
+  "dependencies": {
+    "mailchimp-api-v3": "*"
+  },
+  "repository": {
+    "type": "git"
+  }
+}
