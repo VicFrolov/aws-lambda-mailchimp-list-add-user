@@ -4,7 +4,7 @@ const Mailchimp = require('mailchimp-api-v3');
 const API_KEY = 'YOUR_API_KEY';
 const LIST_ID = 'YOUR_LIST_ID';
 
-function addToList(emailAddress, firstName, lastName, callback) {
+const addToList = (emailAddress, firstName, lastName) => {
     const mailchimp = new Mailchimp(API_KEY);
 
     mailchimp.request({
@@ -19,11 +19,11 @@ function addToList(emailAddress, firstName, lastName, callback) {
             }
         }
     }).then(function(result) {
-        console.log(`SUCCESS:\n ${result}`)
+        console.log(`SUCCESS:\n ${result}`);
     }).catch(function (err) {
-        console.log(`FAILURE:\n ${err}`)
+        console.log(`FAILURE:\n ${err}`);
     });
-}
+};
 
 exports.handler = function(event, context, callback) {
     const emailAddress = event.request.userAttributes.email;
@@ -31,5 +31,4 @@ exports.handler = function(event, context, callback) {
     const lastName = event.request.userAttributes.family_name;
     addToList(emailAddress, firstName, lastName);
     callback(null, event);
-}
-
+};
